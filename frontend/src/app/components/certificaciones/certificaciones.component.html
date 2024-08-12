@@ -1,0 +1,110 @@
+<h2>GESTION DE CERTIFICACIONES</h2>
+<hr style="width: 450px;">
+<form action="">
+    <!-- Tabla para los campos del formulario -->
+    <table>
+        <tr>
+            <td>
+                <label for="id_certificacion">ID_CERTIFICACION</label>
+            </td>
+            <td>
+                <input type="number" id="id_certificacion" name="id_certificacion" [(ngModel)]="certificacion.id_certificacion">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="id_documento">ID_DOCUMENTO</label>
+            </td>
+            <td>
+                <input type="number" id="id_documento" name="id_documento" [(ngModel)]="certificacion.id_documento">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="tipo_certificacion">TIPO_CERTIFICACION</label>
+            </td>
+            <td>
+                <input type="text" id="tipo_certificacion" name="tipo_certificacion" [(ngModel)]="certificacion.tipo_certificacion">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="fecha_emision">FECHA_EMISION</label>
+            </td>
+            <td>
+                <input type="date" id="fecha_emision" name="fecha_emision" [(ngModel)]="certificacion.fecha_emision" style="width: 188px;">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="fecha_expiracion">FECHA_EXPIRACION</label>
+            </td>
+            <td>
+                <input type="date" id="fecha_expiracion" name="fecha_expiracion" [(ngModel)]="certificacion.fecha_expiracion" style="width: 188px;">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="certificado_url">CERTIFICADO_URL</label>
+            </td>
+            <td>
+                <input type="text" id="certificado_url" name="certificado_url" [(ngModel)]="certificacion.certificado_url">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="estado">ESTADO</label>
+            </td>
+            <td>
+                <input type="text" id="estado" name="estado" [(ngModel)]="certificacion.estado">
+            </td>
+        </tr>
+    </table>
+    <br>
+    <!-- Tabla para los botones -->
+    <table>
+        <tr>
+            <td>
+                <button type="button" (click)="addCertificacion()" class="btn btn-success">Registrar</button>
+            </td>
+            <td>
+                <button type="button" (click)="updateCertificacion()" class="btn btn-info">Actualizar</button>
+            </td>
+            <td>
+                <button type="button" (click)="deleteCertificacion()" class="btn btn-danger">Eliminar</button>
+            </td>
+        </tr>
+    </table>
+</form>
+<br>
+<hr>
+
+<h3 class="text-center">LISTA DE CERTIFICACIONES</h3>
+
+<hr>
+
+<!-- Tabla para mostrar la lista de certificaciones -->
+<table class="table table-bordered table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th class="font-weight-bold text-center">Id_Certificacion</th>
+            <th class="font-weight-bold text-center">Id_Documento</th>
+            <th class="font-weight-bold text-center">Tipo_Certificacion</th>
+            <th class="font-weight-bold text-center">Fecha_Emision</th>
+            <th class="font-weight-bold text-center">Fecha_Expiracion</th>
+            <th class="font-weight-bold text-center">Certificado_URL</th>
+            <th class="font-weight-bold text-center">Estado</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let certificacion of certificaciones">
+            <td>{{ certificacion.id_certificacion }}</td>
+            <td>{{ certificacion.id_documento }}</td>
+            <td>{{ certificacion.tipo_certificacion }}</td>
+            <td>{{ certificacion.fecha_emision }}</td>
+            <td>{{ certificacion.fecha_expiracion }}</td>
+            <td>{{ certificacion.certificado_url }}</td>
+            <td>{{ certificacion.estado }}</td>
+        </tr>
+    </tbody>
+</table>

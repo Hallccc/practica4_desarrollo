@@ -1,0 +1,183 @@
+
+<h2>GESTION DE MIEMBROS</h2>
+<hr style="width: 380px;">
+<form action="">
+    <!-- Tabla para los campos del formulario -->
+    <table>
+        <tr>
+            <td>
+                <label for="id_miembro">ID_MIEMBRO</label>
+            </td>
+            <td>
+                <input type="number" id="id_miembro" name="id_miembro" [(ngModel)]="miembro.id_miembro">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="dni">DNI</label>
+            </td>
+            <td>
+                <input type="text" id="dni" name="dni" [(ngModel)]="miembro.dni">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="nombres">NOMBRES</label>
+            </td>
+            <td>
+                <input type="text" id="nombres" name="nombres" [(ngModel)]="miembro.nombres">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="apellidos">APELLIDOS</label>
+            </td>
+            <td>
+                <input type="text" id="apellidos" name="apellidos" [(ngModel)]="miembro.apellidos">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="fecha_nacimiento">FECHA_NACIMIENTO</label>
+            </td>
+            <td>
+                <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" [(ngModel)]="miembro.fecha_nacimiento" style="width: 188px;">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="direccion">DIRECCION</label>
+            </td>
+            <td>
+                <input type="text" id="direccion" name="direccion" [(ngModel)]="miembro.direccion">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="email">E-MAIL</label>
+            </td>
+            <td>
+                <input type="email" id="email" name="email" [(ngModel)]="miembro.email">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="telefono">TELEFONO</label>
+            </td>
+            <td>
+                <input type="text" id="telefono" name="telefono" [(ngModel)]="miembro.telefono">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="universidad">UNIVERSIDAD</label>
+            </td>
+            <td>
+                <input type="text" id="universidad" name="universidad" [(ngModel)]="miembro.universidad">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="titulo">TITULO</label>
+            </td>
+            <td>
+                <input type="text" id="titulo" name="titulo" [(ngModel)]="miembro.titulo">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="fecha_graduacion">FECHA DE GRADUACION</label>
+            </td>
+            <td>
+                <input type="date" id="fecha_graduacion" name="fecha_graduacion" [(ngModel)]="miembro.fecha_graduacion" style="width: 188px;">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="foto_url">FOTO URL</label>
+            </td>
+            <td>
+                <input type="text" id="foto_url" name="foto_url" [(ngModel)]="miembro.foto_url">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="estado">ESTADO</label>
+            </td>
+            <td>
+                <input type="text" id="estado" name="estado" [(ngModel)]="miembro.estado">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="fecha_registro">FECHA DE REGISTRO</label>
+            </td>
+            <td>
+                <input type="date" id="fecha_registro" name="fecha_registro" [(ngModel)]="miembro.fecha_registro" style="width: 188px;">
+            </td>
+        </tr>
+    </table>
+    
+    <br>
+    <!-- Tabla para los botones -->
+    <table>
+        <tr>
+            <td>
+                <button type="button" (click)="addMiembros()" class="btn btn-success">Registrar</button>
+            </td>
+            <td>
+                <button type="button" (click)="updateMiembros()" class="btn btn-info">Actualizar</button>
+            </td>
+            <td>
+                <button type="button" (click)="deleteMiembros()" class="btn btn-danger">Eliminar</button>
+            </td>
+        </tr>
+    </table>
+</form>
+<br>
+<hr>
+
+<h3 class="text-center">LISTA DE MIEMBROS</h3>
+
+<hr>
+<!-- Tabla para mostrar la lista de usuarios -->
+<table class="table table-bordered table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th class="font-weight-bold text-center">ID</th>
+            <th class="font-weight-bold text-center">DNI</th>
+            <th class="font-weight-bold text-center">Nombres</th>
+            <th class="font-weight-bold text-center">Apellidos</th>
+            <th class="font-weight-bold text-center">Fecha de Nacimiento</th>
+            <th class="font-weight-bold text-center">Dirección</th>
+            <th class="font-weight-bold text-center">Email</th>
+            <th class="font-weight-bold text-center">Teléfono</th>
+            <th class="font-weight-bold text-center">Universidad</th>
+            <th class="font-weight-bold text-center">Título</th>
+            <th class="font-weight-bold text-center">Fecha de Graduación</th>
+            <th class="font-weight-bold text-center">Foto URL</th>
+            <th class="font-weight-bold text-center">Estado</th>
+            <th class="font-weight-bold text-center">Fecha de Registro</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let miembro of miembros">
+            <td>{{ miembro.id_miembro }}</td>
+            <td>{{ miembro.dni }}</td>
+            <td>{{ miembro.nombres }}</td>
+            <td>{{ miembro.apellidos }}</td>
+            <td>{{ miembro.fecha_nacimiento }}</td>
+            <td>{{ miembro.direccion }}</td>
+            <td>{{ miembro.email }}</td>
+            <td>{{ miembro.telefono }}</td>
+            <td>{{ miembro.universidad }}</td>
+            <td>{{ miembro.titulo }}</td>
+            <td>{{ miembro.fecha_graduacion }}</td>
+            <td>{{ miembro.foto_url }}</td>
+            <td>{{ miembro.estado }}</td>
+            <td>{{ miembro.fecha_registro }}</td>
+        </tr>
+    </tbody>
+    
+</table>
+

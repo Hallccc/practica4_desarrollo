@@ -1,0 +1,110 @@
+<h2>GESTION DE RENOVACIONES</h2>
+<hr style="width: 420px;">
+<form action="">
+    <!-- Tabla para los campos del formulario -->
+    <table>
+        <tr>
+            <td>
+                <label for="id_renovacion">ID_RENOVACION</label>
+            </td>
+            <td>
+                <input type="number" id="id_renovacion" name="id_renovacion" [(ngModel)]="renovacion.id_renovacion">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="id_miembro">ID_MIEMBRO</label>
+            </td>
+            <td>
+                <input type="number" id="id_miembro" name="id_miembro" [(ngModel)]="renovacion.id_miembro">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="id_pago">ID_PAGO</label>
+            </td>
+            <td>
+                <input type="number" id="id_pago" name="id_pago" [(ngModel)]="renovacion.id_pago">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="id_documento">ID_DOCUMENTO</label>
+            </td>
+            <td>
+                <input type="number" id="id_documento" name="id_documento" [(ngModel)]="renovacion.id_documento">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="fecha_solicitud">FECHA_SOLICITUD</label>
+            </td>
+            <td>
+                <input type="date" id="fecha_solicitud" name="fecha_solicitud" [(ngModel)]="renovacion.fecha_solicitud" style="width: 188px;">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="fecha_aprobacion">FECHA_APROBACION</label>
+            </td>
+            <td>
+                <input type="date" id="fecha_aprobacion" name="fecha_aprobacion" [(ngModel)]="renovacion.fecha_aprobacion" style="width: 188px;" >
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="estado">ESTADO</label>
+            </td>
+            <td>
+                <input type="text" id="estado" name="estado" [(ngModel)]="renovacion.estado">
+            </td>
+        </tr>
+    </table>
+    <br>
+    <!-- Tabla para los botones -->
+    <table>
+        <tr>
+            <td>
+                <button type="button" (click)="addRenovacion()" class="btn btn-success">Registrar</button>
+            </td>
+            <td>
+                <button type="button" (click)="updateRenovacion()" class="btn btn-info">Actualizar</button>
+            </td>
+            <td>
+                <button type="button" (click)="deleteRenovacion()" class="btn btn-danger">Eliminar</button>
+            </td>
+        </tr>
+    </table>
+</form>
+<br>
+<hr>
+
+<h3 class="text-center">LISTA DE RENOVACIONES</h3>
+
+<hr>
+
+<!-- Tabla para mostrar la lista de renovaciones -->
+<table class="table table-bordered table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th class="font-weight-bold text-center">Id_Renovacion</th>
+            <th class="font-weight-bold text-center">Id_Miembro</th>
+            <th class="font-weight-bold text-center">Id_Pago</th>
+            <th class="font-weight-bold text-center">Id_Documento</th>
+            <th class="font-weight-bold text-center">Fecha_Solicitud</th>
+            <th class="font-weight-bold text-center">Fecha_Aprobacion</th>
+            <th class="font-weight-bold text-center">Estado</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let renovacion of renovaciones">
+            <td>{{ renovacion.id_renovacion }}</td>
+            <td>{{ renovacion.id_miembro }}</td>
+            <td>{{ renovacion.id_pago }}</td>
+            <td>{{ renovacion.id_documento }}</td>
+            <td>{{ renovacion.fecha_solicitud }}</td>
+            <td>{{ renovacion.fecha_aprobacion }}</td>
+            <td>{{ renovacion.estado }}</td>
+        </tr>
+    </tbody>
+</table>

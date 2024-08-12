@@ -1,0 +1,100 @@
+<h2>GESTION DE DOCUMENTOS</h2>
+<hr style="width: 410px;">
+<form action="">
+    <!-- Tabla para los campos del formulario -->
+    <table>
+        <tr>
+            <td>
+                <label for="id_documento">ID_DOCUMENTO</label>
+            </td>
+            <td>
+                <input type="number" id="id_documento" name="id_documento" [(ngModel)]="documento.id_documento">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="id_miembro">ID_MIEMBRO</label>
+            </td>
+            <td>
+                <input type="number" id="id_miembro" name="id_miembro" [(ngModel)]="documento.id_miembro">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="tipo_documento">TIPO_DOCUMENTO</label>
+            </td>
+            <td>
+                <input type="text" id="tipo_documento" name="tipo_documento" [(ngModel)]="documento.tipo_documento">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="documento_url">DOCUMENTO_URL</label>
+            </td>
+            <td>
+                <input type="text" id="documento_url" name="documento_url" [(ngModel)]="documento.documento_url">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="fecha_carga">FECHA_CARGA</label>
+            </td>
+            <td>
+                <input type="date" id="fecha_carga" name="fecha_carga" [(ngModel)]="documento.fecha_carga" style="width: 188px;">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="estado">ESTADO</label>
+            </td>
+            <td>
+                <input type="text" id="estado" name="estado" [(ngModel)]="documento.estado">
+            </td>
+        </tr>
+    </table>
+    <br>
+    <!-- Tabla para los botones -->
+    <table>
+        <tr>
+            <td>
+                <button type="button" (click)="addDocumento()" class="btn btn-success">Registrar</button>
+            </td>
+            <td>
+                <button type="button" (click)="updateDocumento()" class="btn btn-info">Actualizar</button>
+            </td>
+            <td>
+                <button type="button" (click)="deleteDocumento()" class="btn btn-danger">Eliminar</button>
+            </td>
+        </tr>
+    </table>
+</form>
+<br>
+<hr>
+
+<h3 class="text-center">LISTA DE DOCUMENTOS</h3>
+
+<hr>
+
+<!-- Tabla para mostrar la lista de documentos -->
+<table class="table table-bordered table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th class="font-weight-bold text-center">Id_Documento</th>
+            <th class="font-weight-bold text-center">Id_Miembro</th>
+            <th class="font-weight-bold text-center">Tipo_Documento</th>
+            <th class="font-weight-bold text-center">Documento_URL</th>
+            <th class="font-weight-bold text-center">Fecha_Carga</th>
+            <th class="font-weight-bold text-center">Estado</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let documento of documentos">
+            <td>{{ documento.id_documento }}</td>
+            <td>{{ documento.id_miembro }}</td>
+            <td>{{ documento.tipo_documento }}</td>
+            <td>{{ documento.documento_url }}</td>
+            <td>{{ documento.fecha_carga }}</td>
+            <td>{{ documento.estado }}</td>
+        </tr>
+    </tbody>
+</table>

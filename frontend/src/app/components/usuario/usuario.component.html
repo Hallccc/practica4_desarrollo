@@ -1,0 +1,117 @@
+
+<h2>GESTION DE USUARIOS</h2>
+<hr style="width: 350px;">
+<form action="" >
+    <!-- Tabla para los campos del formulario -->
+    <table>
+        <tr>
+            <td>
+                <label for="id_usuario">ID_USUARIO</label>
+            </td>
+            <td>
+                <input type="number" id="id_usuario" name="id_usuario" [(ngModel)]="usuario.id_usuario"> 
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="id_miembro">ID_MIEMBRO</label>
+            </td>
+            <td>
+                <input type="number" id="id_miembro" name="id_miembro" [(ngModel)]="usuario.id_miembro">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="username">USERNAME</label>
+            </td>
+            <td>
+                <input type="text" id="username" name="username" [(ngModel)]="usuario.username">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="password_hash">PASSWORD_HASH</label>
+            </td>
+            <td>
+                <div style="position: relative;">
+                    <input [type]="showPassword ? 'text' : 'password'" id="password_hash" name="password_hash" [(ngModel)]="usuario.password_hash">
+                    <button type="button" (mousedown)="showPassword = true" (mouseup)="showPassword = false" (mouseleave)="showPassword = false" style="position: absolute; right: 10px; top: 5px; border: none;margin-top: -3px;margin-right: -8px;background-color: white;">
+                        👁️
+                    </button>
+                </div>
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <label for="rol">ROL</label>
+            </td>
+            <td>
+                <input type="text" id="rol" name="rol" [(ngModel)]="usuario.rol">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="fecha_creacion">FECHA_CREACION</label>
+            </td>
+            <td>
+                <input type="date" id="fecha_creacion" name="fecha_creacion" [(ngModel)]="usuario.fecha_creacion" style="width: 188px;">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="ultimo_acceso">ULTIMO ACCESEO</label>
+            </td>
+            <td>
+                <input type="date" id="ultimo_acceso" name="ultimo_acceso" [(ngModel)]="usuario.ultimo_acceso" style="width: 188px;">
+            </td>
+        </tr>
+    </table>
+    <br>
+    <!-- Tabla para los botones -->
+    <table>
+        <tr>
+            <td>
+                <button type="button" (click)="addUsuario()" class="btn btn-success ">Registrar</button>
+            </td>
+            <td>
+                <button type="button" (click)="updateUsuario()" class="btn btn-info">Actualizar</button>
+            </td>
+            <td>
+                <button type="button" (click)="deleteUsuario()" class="btn btn-danger">Eliminar</button>
+            </td>
+        </tr>
+    </table>
+</form>
+<br>
+<hr>
+
+<h3 class="text-center">LISTA DE USUARIOS</h3>
+
+<hr>
+
+<!-- Tabla para mostrar la lista de usuarios -->
+<table class="table table-bordered table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th class="font-weight-bold text-center">Id_Usuario</th>
+            <th class="font-weight-bold text-center">Id_Miembro</th>
+            <th class="font-weight-bold text-center">Isurname</th>
+            <th class="font-weight-bold text-center">Password_hash</th>
+            <th class="font-weight-bold text-center">Rol</th>
+            <th class="font-weight-bold text-center">Fecha_Creacion</th>
+            <th class="font-weight-bold text-center">Ultimo_Acceso</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let usuario of usuarios">
+            <td>{{ usuario.id_usuario }}</td>
+            <td>{{ usuario.id_miembro }}</td>
+            <td>{{ usuario.username }}</td>
+            <td>{{ usuario.password_hash }}</td>
+            <td>{{ usuario.rol }}</td>
+            <td>{{ usuario.fecha_creacion }}</td>
+            <td>{{ usuario.ultimo_acceso }}</td>
+        </tr>
+    </tbody>
+</table>

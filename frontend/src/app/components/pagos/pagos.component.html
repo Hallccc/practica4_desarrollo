@@ -1,0 +1,110 @@
+<h2>GESTION DE PAGOS</h2>
+<hr style="width: 350px;">
+<form action="">
+    <!-- Tabla para los campos del formulario -->
+    <table>
+        <tr>
+            <td>
+                <label for="id_pago">ID_PAGO</label>
+            </td>
+            <td>
+                <input type="number" id="id_pago" name="id_pago" [(ngModel)]="pago.id_pago">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="id_miembro">ID_MIEMBRO</label>
+            </td>
+            <td>
+                <input type="number" id="id_miembro" name="id_miembro" [(ngModel)]="pago.id_miembro">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="monto">MONTO</label>
+            </td>
+            <td>
+                <input type="number" id="monto" name="monto" [(ngModel)]="pago.monto" step="0.01">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="fecha_pago">FECHA_PAGO</label>
+            </td>
+            <td>
+                <input type="date" id="fecha_pago" name="fecha_pago" [(ngModel)]="pago.fecha_pago" style="width: 188px;">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="tipo_pago">TIPO_PAGO</label>
+            </td>
+            <td>
+                <input type="text" id="tipo_pago" name="tipo_pago" [(ngModel)]="pago.tipo_pago">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="comprobante_url">COMPROBANTE_URL</label>
+            </td>
+            <td>
+                <input type="text" id="comprobante_url" name="comprobante_url" [(ngModel)]="pago.comprobante_url">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="estado">ESTADO</label>
+            </td>
+            <td>
+                <input type="text" id="estado" name="estado" [(ngModel)]="pago.estado">
+            </td>
+        </tr>
+    </table>
+    <br>
+    <!-- Tabla para los botones -->
+    <table>
+        <tr>
+            <td>
+                <button type="button" (click)="addPago()" class="btn btn-success">Registrar</button>
+            </td>
+            <td>
+                <button type="button" (click)="updatePago()" class="btn btn-info">Actualizar</button>
+            </td>
+            <td>
+                <button type="button" (click)="deletePago()" class="btn btn-danger">Eliminar</button>
+            </td>
+        </tr>
+    </table>
+</form>
+<br>
+<hr>
+
+<h3 class="text-center">LISTA DE PAGOS</h3>
+
+<hr>
+
+<!-- Tabla para mostrar la lista de pagos -->
+<table class="table table-bordered table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th class="font-weight-bold text-center">Id_Pago</th>
+            <th class="font-weight-bold text-center">Id_Miembro</th>
+            <th class="font-weight-bold text-center">Monto</th>
+            <th class="font-weight-bold text-center">Fecha_Pago</th>
+            <th class="font-weight-bold text-center">Tipo_Pago</th>
+            <th class="font-weight-bold text-center">Comprobante_URL</th>
+            <th class="font-weight-bold text-center">Estado</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let pago of pagos">
+            <td>{{ pago.id_pago }}</td>
+            <td>{{ pago.id_miembro }}</td>
+            <td>{{ pago.monto }}</td>
+            <td>{{ pago.fecha_pago }}</td>
+            <td>{{ pago.tipo_pago }}</td>
+            <td>{{ pago.comprobante_url }}</td>
+            <td>{{ pago.estado }}</td>
+        </tr>
+    </tbody>
+</table>
